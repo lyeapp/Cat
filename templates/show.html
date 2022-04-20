@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+           background-color: rgb(202, 198, 198);
+       }
+       .container{
+           width:70%;
+           margin: 2rem auto;
+           
+       }
+       h1{
+           font-size: 2rem;
+           font-weight: 700;
+           color:rgb(4, 160, 43);
+           text-shadow: .1px.2px.1px.#fff;
+           font-family: sans-serif;
+       }
+       h2{
+           font-size: 1rem;
+           font-weight: 700;
+           color:rgb(11, 167, 11);
+           text-shadow: .1px.2px.1px.#fff;
+           font-family: sans-serif;
+       }
+       table{
+           width: 100%;
+           border-collapse: collapse;
+       }
+       thead{
+           width: 100%;
+           text-align: left;
+       }
+       th,td{
+           border: 1px solid rgb(150, 145, 145);
+       }
+       th{
+           font-size: 15px;
+           font-weight: 500;
+           color: white;
+           background-color: rgb(4, 160, 51);
+           font-family: sans-serif;
+       }
+       td{
+           font-size: 15px;
+           font-weight: 550;
+           font-family: sans-serif;
+           color:rgb(37, 56, 37);
+       }
+      
+       tr:nth-child(even){
+           background-color: #d8d8dd;
+       }
+       tr:nth-child(odd){
+           background-color: #f3f3f7;
+       }
+       tr:hover{
+           background-color: #c4eeb4;
+           transform: scale(1.12);
+       }
+    </style>
+</head>
+<body> 
+    <div class="container"> 
+    <h1>Employee Management System</h1>
+    <H2>EMPLOYEES REPORT</H2>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>SL NO</th>
+                <th>EMPLOYEE ID</th>
+                <th>EMPLOYEE NAME</th>
+                <th>EMAIL ID</th>
+                <th>CONTACT NO</th>
+                <th>DATE OF BIRTH</th>
+                <th>ACTION..</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for products in products %}
+        <tr>
+        <td>{{products.id}}</td>
+        <td>{{products.employeeid}}</td>
+        <td>{{products.employeename}}</td>
+        <td>{{products.employeeemail}}</td>
+        <td>{{products.employeecontact}}</td>
+        <td>{{products.employeedob}}</td>
+
+        <td><a href="{% url 'editpage' products.id %}">Edit</a>
+            <br>
+            <a href="{% url 'deletepage' products.id %}">Delete</a>
+        </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>

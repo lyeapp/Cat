@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+              background-color: rgb(202, 198, 198);
+          }
+       h1{color: rgb(27, 71, 60);
+       }
+       </style>
+</head>
+<body>
+    <h1>Edit employee details</h1> 
+    <form method="post" action="/edit_product_details/{{products.pk}}">
+        {% csrf_token %} 
+        <label>Employee id:</label>
+        <input type="number" name="employeeid" value="{{ products.employeeid }}"><br>
+        <label>Enter Employee name:</label>
+        <input type="text" name="employeename"  value="{{ products.employeename }}"><br>
+        <label>Enter Email:</label>
+        <input type="text" name="email"  value="{{ products.employeeemail }}"><br>
+        <label>Enter Contact number:</label>
+        <input type="text" name="cn"  value="{{ products.employeecontact }}"><br>
+        <label>Enter Date of birth:</label>
+        <input type="date" name="dob"  value="{{ products.employeedob }}"><br>
+        <button type="submit">Submit</button>
+        <input type="button" value="Previous Page" onClick="javascript:history.go(-1);">
+    </form>      
+</body>
+</html>
